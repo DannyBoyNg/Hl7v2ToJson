@@ -16,18 +16,24 @@ namespace DannyBoyNg
                 hl7v2message = string.Join("|", tmp);
             }
 
-            Message message = new Message(hl7v2message);
+            //Parse Hl7 message
+            var message = new Message(hl7v2message);
             message.ParseMessage();
 
-            //Process all segments
+            //Process all segments and return JSON formatted string
+            return JsonConvert.SerializeObject(ProcessSegments(message.Segments()));
+        }
+
+        private static Dictionary<string, List<Dictionary<int, dynamic>>> ProcessSegments(List<Segment> segments)
+        {
             var level1 = new Dictionary<string, List<Dictionary<int, dynamic>>>();
-            foreach (var segment in message.Segments())
+            foreach (var segment in segments)
             {
                 if (!level1.ContainsKey(segment.Name)) level1.Add(segment.Name, new List<Dictionary<int, dynamic>>());
                 var level2 = ProcessFields(segment.GetAllFields());
                 level1[segment.Name].Add(level2);
             }
-            return JsonConvert.SerializeObject(level1);
+            return level1;
         }
 
         private static List<dynamic> ProcessRepetitions(List<Field> fields)
