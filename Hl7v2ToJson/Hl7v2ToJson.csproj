@@ -7,6 +7,8 @@
     <Description>A C# library to convert a HL7v2 formatted string to JSON</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageTags>HL7 HL7v2 JSON</PackageTags>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/DannyBoyNg/Hl7v2ToJson/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/DannyBoyNg/Hl7v2ToJson</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>
