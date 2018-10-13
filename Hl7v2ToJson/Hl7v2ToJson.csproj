@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>DannyBoyNg</Authors>
+    <Product>DannyBoyNg</Product>
+    <Description>A C# library to convert a HL7v2 formatted string to JSON</Description>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageTags>HL7 HL7v2 JSON</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="HL7-dotnetcore" Version="2.5.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+  </ItemGroup>
+
+</Project>
